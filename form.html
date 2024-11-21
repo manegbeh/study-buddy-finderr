@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Buddy Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Study Buddy Platform</h1>
+      <p>Find your perfect study buddy based on your preferences!</p>
+    </header>
+
+    <section id="profile-setup">
+      <h2>Profile Setup</h2>
+      <form id="profileForm">
+        <input type="text" id="name" name="name" placeholder="Name" required>
+        <input type="number" id="age" name="age" placeholder="Age" required>
+        <input type="text" id="school" name="school" placeholder="School" required>
+
+        <label for="academicLevel">What is your current academic level?</label>
+        <select id="academicLevel" name="academicLevel" required>
+          <option value="High School">High School</option>
+          <option value="Undergraduate">Undergraduate</option>
+          <option value="Postgraduate">Postgraduate</option>
+        </select>
+
+        <label for="subjects">Select Your Favorite Subject:</label>
+        <select id="subjects" name="subjects">
+          <option value="Math">Math</option>
+          <option value="Science">Science</option>
+          <option value="History">History</option>
+          <option value="Language">Language</option>
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Biology">Biology</option>
+          <option value="Economics">Economics</option>
+          <option value="Art">Art</option>
+          <option value="Music">Music</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Psychology">Psychology</option>
+          <option value="Engineering">Engineering</option>
+        </select>
+
+        <label for="studyFocus">What is your current academic goal?</label>
+        <select id="studyFocus" name="studyFocus" required>
+          <option value="Prepare for an upcoming exam">Prepare for an upcoming exam</option>
+          <option value="Work on a specific project">Work on a specific project</option>
+          <option value="Review general coursework">Review general coursework</option>
+          <option value="Learn a new skill/topic">Learn a new skill/topic</option>
+        </select>
+
+        <label for="availability">How often do you want to meet?</label>
+        <select id="availability" name="availability" required>
+          <option value="Daily">Daily</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Occasionally (project-based)">Occasionally (project-based)</option>
+        </select>
+
+        <label for="studyTime">Preferred Study Time:</label>
+        <select id="studyTime" name="studyTime">
+          <option value="Mornings">Mornings</option>
+          <option value="Afternoons">Afternoons</option>
+          <option value="Evenings">Evenings</option>
+          <option value="Late Night">Late Night</option>
+        </select>
+
+        <label for="groupSize">Do you prefer studying:</label>
+        <select id="groupSize" name="groupSize">
+          <option value="1-on-1">1-on-1</option>
+          <option value="Small Group">Small Group</option>
+          <option value="Large Group">Large Group</option>
+        </select>
+
+        <label for="learningStyle">Preferred Learning Style:</label>
+        <select id="learningStyle" name="learningStyle">
+          <option value="Visual">Visual (Diagrams, videos, charts)</option>
+          <option value="Auditory">Auditory (Lectures, discussions)</option>
+          <option value="Reading/Writing">Reading/Writing (Text-based)</option>
+          <option value="Kinesthetic">Kinesthetic (Hands-on activities)</option>
+        </select>
+
+        <label for="motivation">Motivation Levels:</label>
+        <select id="motivation" name="motivation">
+          <option value="Highly Motivated">Highly Motivated</option>
+          <option value="Moderately Motivated">Moderately Motivated</option>
+          <option value="Need External Motivation">Need External Motivation</option>
+        </select>
+
+        <label for="communication">Preferred Communication Method:</label>
+        <select id="communication" name="communication">
+          <option value="Text-based">Text-based (messages, chat)</option>
+          <option value="Video Calls">Video Calls</option>
+          <option value="Combination">Combination of methods</option>
+        </select>
+
+        <button type="button" id="saveProfile">Find My Matches</button>
+      </form>
+    </section>
+
+    <section id="matches" style="display: none;">
+      <h2>Suggested Study Buddies</h2>
+      <div id="matchResults"></div>
+      <button onclick="resetForm()">Go Back</button>
+    </section>
+
+    <footer>
+      <p>© 2024 Study Buddy Platform. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
