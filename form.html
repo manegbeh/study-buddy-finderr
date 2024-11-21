@@ -8,7 +8,7 @@
 </head>
 <body>
   <div id="app">
-    <header>
+    <header class="header">
       <h1>Study Buddy Platform</h1>
       <p>Find your perfect study buddy based on your preferences!</p>
     </header>
@@ -84,7 +84,7 @@
 
         <label for="motivation">Motivation Levels:</label>
         <select id="motivation" name="motivation">
-          <option value="Highly Motivated">Highly Motivated</option>
+          <option value="Highly Motivated">Highly Motiv ated</option>
           <option value="Moderately Motivated">Moderately Motivated</option>
           <option value="Need External Motivation">Need External Motivation</option>
         </select>
@@ -96,14 +96,14 @@
           <option value="Combination">Combination of methods</option>
         </select>
 
-        <button type="button" id="saveProfile">Find My Matches</button>
+        <button type="button" class="button" id="saveProfile">Find My Matches</button>
       </form>
     </section>
 
     <section id="matches" style="display: none;">
       <h2>Suggested Study Buddies</h2>
       <div id="matchResults"></div>
-      <button onclick="resetForm()">Go Back</button>
+      <button class="button" onclick="resetForm()">Go Back</button>
     </section>
 
     <footer>
