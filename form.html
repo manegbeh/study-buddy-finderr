@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Study Buddy Platform</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Unicons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 </head>
 <body>
   <div id="app">
     <header class="header">
-      <h1>Study Buddy Platform</h1>
-      <p>Find your perfect study buddy based on your preferences!</p>
-    </header>
+      <nav class="nav">
+        <a href="home.html" class="nav_logo">Study Buddy Platform</a>
 
+        <ul class="nav_items">
+          <li class="nav_item">
+            <a href="form.html" class="nav_link">Find Matches</a>
+            <a href="#" class="nav_link">About</a>
+            <a href="#" class="nav_link">Contact</a>
+          </li>
+        </ul>
+
+      </nav>
+    </header>
+    
     <section id="profile-setup">
       <h2>Profile Setup</h2>
       <form id="profileForm">
@@ -105,10 +118,6 @@
       <div id="matchResults"></div>
       <button class="button" onclick="resetForm()">Go Back</button>
     </section>
-
-    <footer>
-      <p>© 2024 Study Buddy Platform. All rights reserved.</p>
-    </footer>
   </div>
 
   <script src="script.js"></script>
