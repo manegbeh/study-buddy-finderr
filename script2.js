@@ -1,38 +1,3 @@
-// Existing functionality
-const formOpenBtn = document.querySelector("#form-open"),
-  home = document.querySelector(".home"),
-  formContainer = document.querySelector(".form_container"),
-  formCloseBtn = document.querySelector(".form_close"),
-  signupBtn = document.querySelector("#signup"),
-  loginBtn = document.querySelector("#login"),
-  pwShowHide = document.querySelectorAll(".pw_hide");
-
-formOpenBtn.addEventListener("click", () => home.classList.add("show"));
-formCloseBtn.addEventListener("click", () => home.classList.remove("show"));
-
-pwShowHide.forEach((icon) => {
-  icon.addEventListener("click", () => {
-    let getPwInput = icon.parentElement.querySelector("input");
-    if (getPwInput.type === "password") {
-      getPwInput.type = "text";
-      icon.classList.replace("uil-eye-slash", "uil-eye");
-    } else {
-      getPwInput.type = "password";
-      icon.classList.replace("uil-eye", "uil-eye-slash");
-    }
-  });
-});
-
-signupBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  formContainer.classList.add("active");
-});
-loginBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  formContainer.classList.remove("active");
-});
-
-// New functionality
 document.getElementById('saveProfile').addEventListener('click', () => {
   const profile = {
     name: document.getElementById('name').value,
@@ -58,12 +23,13 @@ function findMatches(userProfile) {
     const ageGroup = Math.random();
     let age;
 
+    // Weighted distribution of ages
     if (ageGroup < 0.7) {
-      age = Math.floor(Math.random() * 6) + 18; // 18-23 (70% chance)
+      age = Math.floor(Math.random() * 6) + 18;  // 18-23 (70% chance)
     } else if (ageGroup < 0.9) {
-      age = Math.floor(Math.random() * 8) + 23; // 23-30 (20% chance)
+      age = Math.floor(Math.random() * 8) + 23;  // 23-30 (20% chance)
     } else {
-      age = Math.floor(Math.random() * 6) + 30; // 30-35 (10% chance)
+      age = Math.floor(Math.random() * 6) + 30;  // 30-35 (10% chance)
     }
 
     return {
@@ -82,28 +48,32 @@ function findMatches(userProfile) {
     };
   };
 
+  // Generate 500 profiles
   const sampleProfiles = Array.from({ length: 500 }, (_, index) => generateRandomProfile(index));
 
   return sampleProfiles
     .map((profile) => {
       let score = 0;
 
+      // High-weight criteria (most important)
       if (profile.academicLevel === userProfile.academicLevel) score += 3;
       if (profile.subject === userProfile.subject) score += 3;
       if (profile.studyFocus === userProfile.studyFocus) score += 3;
 
+      // Medium-weight criteria
       if (profile.availability === userProfile.availability) score += 2;
       if (profile.studyTime === userProfile.studyTime) score += 2;
 
+      // Low-weight criteria
       if (profile.groupSize === userProfile.groupSize) score += 1;
       if (profile.learningStyle === userProfile.learningStyle) score += 1;
       if (profile.motivation === userProfile.motivation) score += 1;
       if (profile.communication === userProfile.communication) score += 1;
 
-      return { ...profile, score };
+      return { ...profile, score }; // Include the score in the result
     })
-    .sort((a, b) => b.score - a.score)
-    .filter((profile) => profile.score >= 5);
+    .sort((a, b) => b.score - a.score) // Sort profiles by highest score
+    .filter((profile) => profile.score >= 5); // Filter out profiles with very low scores
 }
 
 function displayMatches(matches) {
@@ -135,8 +105,7 @@ function displayMatches(matches) {
         <p>Motivation: ${match.motivation}</p>
         <p>Communication: ${match.communication}</p>
       </div>
-    `
-      )
+    `)
       .join('');
   }
 }
@@ -146,3 +115,4 @@ function resetForm() {
   document.getElementById('matches').style.display = 'none';
   document.getElementById('profileForm').reset();
 }
+
