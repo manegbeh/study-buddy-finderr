@@ -9,6 +9,7 @@
 a {
   text-decoration: none;
 }
+
 .header {
   position: fixed;
   height: 80px;
@@ -59,7 +60,8 @@ a {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-color: #fff;
+  background-color: #c8e8e9;
+  ;
 }
 .home::before {
   content: "";
